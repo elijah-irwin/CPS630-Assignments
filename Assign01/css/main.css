@@ -20,15 +20,15 @@ body {
 }
 
 .leNav li:hover {
-	background-color: grey; 
+	background-color: rgba(0,0,0,0.5); 
 }
 
 .active2 {
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.2);
 }
 
 .navbar-inverse {
-	background-color: #2c3e50;
+	background-color: #96CEB4;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -37,6 +37,11 @@ body {
 
 .navbar-inverse .navbar-brand {
 	color: white;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0;
 }
 
 .title {
@@ -49,8 +54,8 @@ body {
 
 /* Jumbotron Stuff*/
 .jumbotron {
-	color: #2c3e50;
-	background: rgba(0,0,0,0.2);
+	color: white;
+	background: #FF6F69;
 	margin-bottom:20px;
 }
 
@@ -67,7 +72,7 @@ body {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 150px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -87,13 +92,15 @@ body {
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.6s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.6s
 }
 
 #photo {
 	width: 64%;
+	border-radius: 2px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #info {
@@ -116,23 +123,24 @@ body {
 
 /* The Close Button */
 .close {
-    color: grey;
+    color: red;
     float: right;
-    font-size: 28px;
+    font-size: 40px;
+    padding-right: 10px;
     font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
 .modal-header {
-    padding: 2px 16px;
+    padding: 5px 16px;
     background-color: white;
-    color: white;
+    border-radius: 5px 5px 0 0;
 }
 
 .modal-body {
