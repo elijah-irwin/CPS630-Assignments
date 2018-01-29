@@ -1,7 +1,7 @@
 var sn = new Object();
 sn.photo = "../assets/starryNight.jpg"
 sn.name = "Starry Night";
-sn.artist = "Vinvent Van Gogh";
+sn.artist = "Vincent Van Gogh";
 sn.dofp = "1889";
 sn.dimensions  = "73.7cm x 92.1cm";
 sn.curlocation = "Museum of Modern Art";
