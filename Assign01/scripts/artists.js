@@ -1,20 +1,4 @@
-var mak = new Object();
-mak.name = "McKenzie Irwin";
-mak.stuNum = 500697853;
-mak.photo = "assets/doritoResize.jpg";
-mak.program = "Computer Science"
 
-var dany = new Object();
-dany.name = "Dany";
-dany.stuNum = 500697853;
-dany.photo = "http://i.imgur.com/qK42fUu.jpg";
-dany.program = "Computer Science"
-
-var maria = new Object();
-maria.name = "Maria";
-maria.stuNum = 500697853;
-maria.photo = "http://i.imgur.com/qK42fUu.jpg";
-maria.program = "Computer Science"
 
 var array = [mak,dany,maria];
 
@@ -32,9 +16,9 @@ function displayInfo(value) {
 	var stuNum = array[value].stuNum;
 	var prog = array[value].program;
 	document.getElementById("photo").src = img;
-	document.getElementById("name").innerHTML = "<strong>Name: </strong>" + name;
-	document.getElementById("stuNum").innerHTML = "<strong>Student Number: </strong>" + stuNum;
-	document.getElementById("program").innerHTML = "<strong>Program: </strong>" + prog;
+	document.getElementById("name").innerHTML = "Name: " + name;
+	document.getElementById("stuNum").innerHTML = "Student Number: " + stuNum;
+	document.getElementById("program").innerHTML = "Program: " + prog;
 
     modal.style.display = "block";
 }
