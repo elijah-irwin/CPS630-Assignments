@@ -1,0 +1,42 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+}
+
+h1 {
+    font-size:3em;
+    text-align: center;
+    padding:20px;
+}
+
+.lower {
+    width: 80%;
+}
+
+ .break {
+    height: 50px;
+}
+
+th {
+    font-size:1.7em;
+}
+
+td {
+    text-align: "center";
+    font-weight: "bold";
+    font-size:1.3em;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+	float: left;
+}
+
+img {
+    width:300px;
+}
