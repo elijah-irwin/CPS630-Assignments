@@ -99,13 +99,14 @@ body {
 
 #photo {
 	width: 64%;
+    margin-right: 3%;
 	border-radius: 2px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #info {
-	float:right;
-	padding-right: 3%;
+    float: right;
+    padding-right: 3%;
 	padding-top: 2%;
 	font-size:1em;
 	font-size:1vw;

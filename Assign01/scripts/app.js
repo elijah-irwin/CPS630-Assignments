@@ -1,19 +1,19 @@
 var mak = new Object();
 mak.name = "McKenzie Irwin";
-mak.stuNum = 500697853;
+mak.stuNum = "500 697 853";
 mak.photo = "assets/doritoResize.jpg";
 mak.program = "Computer Science"
 
 var dany = new Object();
-dany.name = "Dany";
-dany.stuNum = 500697853;
-dany.photo = "http://i.imgur.com/qK42fUu.jpg";
+dany.name = "Danylo Dotsenko";
+dany.stuNum = "500 696 280";
+dany.photo = "assets/dany.jpg";
 dany.program = "Computer Science"
 
 var maria = new Object();
-maria.name = "Maria";
-maria.stuNum = 500697853;
-maria.photo = "http://i.imgur.com/qK42fUu.jpg";
+maria.name = "Maria Poveda";
+maria.stuNum = "500 694 400";
+maria.photo = "assets/maria.jpg";
 maria.program = "Computer Science"
 
 var array = [mak,dany,maria];

@@ -1,6 +1,6 @@
 var sn = new Object();
 sn.photo = "../assets/starryNight.jpg"
-sn.name = "Starry Night";
+sn.name = "The Starry Night";
 sn.artist = "Vincent Van Gogh";
 sn.dofp = "1889";
 sn.dimensions  = "73.7cm x 92.1cm";
@@ -34,7 +34,7 @@ ml.name = "Mona Lisa";
 ml.artist = "Leonardo da Vinci";
 ml.dofp = "1503-(1506-1517)";
 ml.dimensions  = "77cm x 53cm";
-ml.curlocation = "Musée du Louvre, Paris";
+ml.curlocation = "Musee du Louvre, Paris";
 ml.medium = "Oil On Panel"
 ml.genre = "Portrait";
 
@@ -50,15 +50,13 @@ s.genre = "Expressionism";
 
 var pearl = new Object();
 pearl.photo = "../assets/final.jpg";
-pearl.name = "Girl with a Pear Earring";
+pearl.name = "Girl with a Pearl Earring";
 pearl.artist = "Johannes Vermeer";
 pearl.dofp = "1665";
 pearl.dimensions  = "44.5cm x 39cm";
 pearl.curlocation = "Mauritshuis, Netherlands";
 pearl.medium = "Oil On Canvas";
 pearl.genre = "Portrait";
-
-
 
 var array = [sn,adam,kiss,ml,s,pearl];
 
