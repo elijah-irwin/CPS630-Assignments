@@ -21,3 +21,25 @@ function show3() {
 function hide3() {
 	$("#img3").fadeOut();
 }
+
+function showText(){
+	$("#title1").fadeIn();
+}
+function hideText(){
+	$("#title1").fadeOut();
+	
+}
+function showText2(){
+	$("#title2").fadeIn();
+}
+function hideText2(){
+	$("#title2").fadeOut();
+	
+}
+function showText3(){
+	$("#title3").fadeIn();
+}
+function hideText3(){
+	$("#title3").fadeOut();
+	
+}
