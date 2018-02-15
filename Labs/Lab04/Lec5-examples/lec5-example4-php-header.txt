@@ -1,0 +1,23 @@
+
+
+<?php
+...
+// Function headers_sent() checks if the HTTP headers have been sent 
+ 
+
+if (!headers_sent($httpMessage, $lineNumber))
+  {
+	//if no header is sent, add this header
+  	header("Location: https://www.hostserver.com/");
+  	exit;
+  }
+else
+  {
+	//if header is sent
+  	echo "Headers sent in $httpMessage, in line $lineNumber";
+  	exit;
+  }
+?>
+...
+<html>
+<body>

@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="menu">
+<?php include 'menu.php';?>
+</div>
+
+<h1>Welcome to my home page!</h1>
+<p>Some text1.</p>
+<p>Some text2.</p>
+
+</body>
+</html>
+
+
+
+Output:
+
+Welcome to my home page!
+
+Some text1.
+
+Some text2.
+
+It is possible to insert the content of one PHP file into another PHP file 
+(before the server executes it), with the include or require statement.
