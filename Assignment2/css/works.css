@@ -1,0 +1,162 @@
+/* Body / Container Stuff*/
+body {
+	padding-top:90px;
+	font-family:Raleway,sans-serif;
+}
+
+/* Navbar Stuff*/
+.nav {
+	height:70px;
+}
+
+.leNav {
+	padding-top: 10px;
+	padding-right: 20px;
+	font-size:1.2em;
+}
+
+.leNav li {
+	transition:.5s;
+}
+
+.leNav li:hover {
+	background-color: rgba(0,0,0,0.5); 
+}
+
+.active2 {
+	background-color: rgba(0,0,0,0.2);
+}
+
+.navbar-inverse {
+	background-color: #96CEB4;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0;
+}
+
+.title {
+	font-size:3em;
+	letter-spacing: -2px;
+	font-family: Courgette, sans-serif;
+	padding-top: 25px;
+	padding-left: 20px;
+}
+
+/* Jumbotron Stuff*/
+.jumbotron {
+	color: white;
+	background: #FF6F69;
+	margin-bottom:20px;
+}
+
+.heading {
+	font-family: Playfair Display, sans-serif;
+}
+
+.subheading {
+	font-family: Raleway,sans-serif;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.6s;
+    animation-name: animatetop;
+    animation-duration: 0.6s
+}
+
+#photo {
+	width: 60%;
+	border-radius: 2px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#info {
+	float:right;
+	padding-right: 3%;
+	padding-top: 2%;
+	font-size:1em;
+	font-size:1vw;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: red;
+    float: right;
+    font-size: 40px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 5px 16px;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.modal-body {
+	padding: 16px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: white;
+    color: white;
+    border:none;
+}
+
+/* Random Stuff */
+img:hover {
+	cursor:pointer;
+}

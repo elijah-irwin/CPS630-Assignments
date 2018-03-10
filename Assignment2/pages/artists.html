@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Art Gallery</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- My Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="../css/artists.css">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+			    	<span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			    </button>
+				<a href="#" class="navbar-brand title">The Art Gallery</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-nav-demo">
+				<ul class="nav navbar-nav navbar-right leNav">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="works.html">Works</a></li>
+					<li class="active2"><a href="#">Artists</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="heading">Artists</h1>
+			<p class="subheading">Come take a closer look at the artists, and what inspired their work.<br>Click on any artist to learn more.</p>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(0);">
+				<img src="../assets/ldv.jpg">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(1);">
+				<img src="../assets/em.jpg">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(2);">
+				<img src="../assets/klimt.jpg">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(3);">
+				<img src="../assets/jv.jpg">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(4);">
+				<img src="../assets/vvg.jpg">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<div class="thumbnail" onclick="displayInfo(5);">
+				<img src="../assets/m3.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+		    
+		    <!-- Modal content -->
+		    <div class="modal-content">
+
+		    	<div class="modal-header">
+			        <span class="close">&times;</span>
+			        <h2 id="title"></h2>
+		    	</div>
+
+		    	<div class="modal-body">
+			    	<img id="photo" src="">
+			    	<div id="info">	
+					    <p id="name"></p>
+					    <p id="dofb"></p>
+					    <p id="location"></p>
+					    <p id="genre"></p>
+					    <p id="famousWorks"></p>
+				    </div>
+		    	</div>
+		 	</div>
+		</div>
+	</div>
+
+	<!-- My Script -->
+	<script type="text/javascript" src="../scripts/artists.js"></script>
+
+</body>
+</html>
