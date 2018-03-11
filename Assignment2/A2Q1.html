@@ -12,6 +12,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Raleway" rel="stylesheet">
 
+	<!-- Font Awesome Icons -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
 	<!-- jQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -21,64 +24,86 @@
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-				<ul class="nav navbar-nav navbar-left leNav">
-					<li class="dropdown"><a href="#">Art Works</a>
-						<div class="dropdown-content">
-     						 <a href="#" onclick="displayInfo(0)">The Starry Night </a>
-     						 <a href="#" onclick="displayInfo(1)">The Creation of Adam</a>
-      						 <a href="#" onclick="displayInfo(2)">The Kiss</a>
-      						 <a href="#" onclick="displayInfo(3)">Mona Lisa</a>
-     						 <a href="#" onclick="displayInfo(4)">The Scream</a>
-      						 <a href="#" onclick="displayInfo(5)">Girl with a Pearl Earring</a>
-    					</div>
-    				</li>
-					<li class="dropdown" ><a href="#">Artists</a>
-						<div class="dropdown-content">
-     						 <a href="#">Vincent Van Gogh</a>
-     						 <a href="#">Michelangelo</a>
-      						 <a href="#">Gustav Klimt</a>
-      						 <a href="#">Leonardo da Vinci</a>
-     						 <a href="#">Edvard Munch</a>
-      						 <a href="#">Johannes Vermeer</a>
-    					</div>	
-					</li>
-					<li class="dropdown"><a href="#"> Museum</a>
-						<div class="dropdown-content">
-     						 <a href="#">Museum of Modern Art</a>
-     						 <a href="#">Sistine Chapel</a>
-      						 <a href="#">Osterreichische Galerie Belvedere</a>
-      						 <a href="#">Musee du Louvre</a>
-     						 <a href="#">National Gallery</a>
-      						 <a href="#">Mauritshuis</a>
-    					</div>
-    				</li>
-    				<li><img src="assets/shopping.png" height="50px" width="50px"></li>
-    				
-				</ul>
-				
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+			    	<span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			    </button>
+				<a href="#" class="navbar-brand title">The Art Gallery</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-nav-demo">
 				<ul class="nav navbar-nav navbar-right leNav">
-					<li class="active2"><a href="#">Home</a></li>
+					<li class="active2"><a href="A2Q1.html">Home</a></li>
 					<li><a href="index.html">About Us</a></li>
-					<li><a href="#"> Blogs</a></li>
+					<li><a href="pages/works.html">Blogs</a></li>
 				</ul>
 			</div>
+		</div>
+	</nav>
+	<nav class="navbar-inverse" id="underbar">
+		<div class="container">
+			<ul class="nav navbar-nav navbar-left underNav">
+
+				<li class="dropdown"><a href="#">Art Works</a>
+					<div class="dropdown-content">
+ 						 <a href="#" onclick="displayInfo(0)">The Starry Night </a>
+ 						 <a href="#" onclick="displayInfo(1)">The Creation of Adam</a>
+  						 <a href="#" onclick="displayInfo(2)">The Kiss</a>
+  						 <a href="#" onclick="displayInfo(3)">Mona Lisa</a>
+ 						 <a href="#" onclick="displayInfo(4)">The Scream</a>
+  						 <a href="#" onclick="displayInfo(5)">Girl with a Pearl Earring</a>
+					</div>
+				</li>
+
+				<li class="dropdown" ><a href="#">Artists</a>
+					<div class="dropdown-content">
+ 						 <a href="#" onclick="displayArtist(0)">Vincent Van Gogh</a>
+ 						 <a href="#" onclick="displayArtist(1)">Michelangelo</a>
+  						 <a href="#" onclick="displayArtist(2)">Gustav Klimt</a>
+  						 <a href="#" onclick="displayArtist(3)">Leonardo da Vinci</a>
+ 						 <a href="#" onclick="displayArtist(4)">Edvard Munch</a>
+  						 <a href="#" onclick="displayArtist(5)">Johannes Vermeer</a>
+					</div>	
+				</li>
+
+				<li class="dropdown"><a href="#"> Museum</a>
+					<div class="dropdown-content">
+ 						 <a href="#">Museum of Modern Art</a>
+ 						 <a href="#">Sistine Chapel</a>
+  						 <a href="#">Osterreichische Galerie Belvedere</a>
+  						 <a href="#">Musee du Louvre</a>
+ 						 <a href="#">National Gallery</a>
+  						 <a href="#">Mauritshuis</a>
+					</div>
+				</li>
+
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="shopCart" href="">Shopping Cart <i class="fas fa-shopping-cart"></i></a></li>
+			</ul>
+
+		</div>
 	</nav>
 
-	<div class="row">
-		<div class="col-md-4 left">
-		</div>
-		<div class="col-md-4">
-		<img  id="photo" src="">
-		</div>
-		<div class="col-md-4 right">
-		<p  id="name"></p>
-		<p id="description"></p>
-		<p id="price"></p>
+	<div class="pageHeader"><h1>Current Features</h1></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<img  id="photo" src="assets/starryNight.jpg">
+			</div>
+			<div class="col-md-6 right">
+				<p id="name"><strong>Name: </strong>The Starry Night</p>
+				<p id="description"><strong>Description: </strong>Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Remy-de-Provence, just before sunrise, with the addition of an idealized village.</p>
+				<p id="price"><strong>Price: </strong>$15,000</p>
+			</div>
 		</div>
 	</div>
 
-<script type="text/javascript" src="scripts/A2Q1.js"></script>
+	<script type="text/javascript" src="scripts/A2Q1.js"></script>
 
-	
 </body>
 </html>
