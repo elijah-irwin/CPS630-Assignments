@@ -9,6 +9,8 @@ sn.medium = "Oil On Canvas";
 sn.genre = "Post-Impressionism, Modern";
 sn.price = "$15,000";
 sn.description = "Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an idealized village.";
+sn.colors = "Dark blue, yellow, and black nightscape colors"
+
 
 var vvg = new Object();
 vvg.photo = "./assets/vvg.jpg";
@@ -31,6 +33,7 @@ adam.medium = "Paint, Plaster";
 adam.genre = "Renaissance";
 adam.description = "It illustrates the Biblical creation narrative from the Book of Genesis in which God gives life to Adam, the first man. ";
 adam.price = "$20,000";
+adam.colors = "Mute and skin colors, as well as some landscape colors";
 
 var m = new Object();
 m.photo = "./assets/m3.jpg";
@@ -52,6 +55,7 @@ kiss.medium = "Oil On Canvas";
 kiss.genre = "Symbolism, Modern";
 kiss.description = "The painting depicts a couple embracing one another, their bodies entwined in elaborate robes decorated in a style influenced by the contemporary Art Nouveau style and the organic forms of the earlier Arts and Crafts movement. ";
 kiss.price = "$18,000";
+kiss.colors = "Very abstract colors, mostly muted yellow, as well as a mix of some green and pink colours";
 
 var klimt = new Object();
 klimt.photo = "./assets/klimt.jpg";
@@ -74,6 +78,7 @@ ml.medium = "Oil On Panel";
 ml.genre = "Portrait";
 ml.description = "The painting is thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo.";
 ml.price = "$30,000";
+ml.colors = "Generally dark landscape colors, as well as dark clothing colors, and quite typical skin color for the face";
 
 var ldv = new Object();
 ldv.photo = "./assets/ldv.jpg"
@@ -96,6 +101,7 @@ s.medium = "Oil, Tempera, Pastel, <br> Crayon on Cardboard";
 s.genre = "Expressionism";
 s.description = "The works show a figure with an agonized expression against a landscape with a tumultuous orange sky.";
 s.price = "$45,000";
+s.colors = "Bright red and orange colors for the landscape, as well as some dark colors for the character and river";
 
 var em = new Object();
 em.photo = "./assets/em.jpg"
@@ -118,6 +124,8 @@ pearl.medium = "Oil On Canvas";
 pearl.genre = "Portrait";
 pearl.description = "It is a tronie of a girl wearing a headscarf and a pearl earring. ";
 pearl.price = "$21,000";
+pearl.colors = "A mix of blue, yellow, and skin color for the character with a black background";
+
 
 var jv = new Object();
 jv.photo = "./assets/jv.jpg";
@@ -129,10 +137,12 @@ jv.famousWorks = "<br>The Procuress,<br>The Little Street,<br>View of Delft";
 jv.description = "Johannes Vermeer was born on October 31, 1632 in Delft, Netherlands. He is one of the most recongnized Dutch artists of all time. Vermeer's most popular paintings include 'Little Street', 'View of Delft' and 'Girl with a Pearl Earring'.  He died December 16, 1675 in the Netherlands.";
 
 
-var array = [sn,adam,kiss,ml,s,pearl];
-var artist = [vvg,m,klimt,ldv,em,jv];
+var array = [sn,adam,kiss,ml,s,pearl,vvg,m,klimt,ldv,em,jv];
+//var artist = [vvg,m,klimt,ldv,em,jv];
+
 var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
+
 var current = 0;
 
 
@@ -145,16 +155,17 @@ function displayInfo(value) {
 	var price		= array[value].price;
 	current = value;
 	document.getElementById("photo").src = img;
-	document.getElementById("name").innerHTML = /*"<strong>Name: </strong>"  + "<a href=./Pages/A2Q3.html onclick=check()>" + */ name;
+	document.getElementById("name").innerHTML = name;
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
 	
 }
-
+	
 function displayArtist(value) {
-	var img         = artist[value].photo;
-	var name        = artist[value].name;
-	var description = artist[value].description;
+	var img         = array[value].photo;
+	var name        = array[value].name;
+	var description = array[value].description;
+	current = value; 
 	
 	document.getElementById("photo").src = img;
 	document.getElementById("name").innerHTML = "<h2>"   + name + "</h2>";
@@ -162,10 +173,10 @@ function displayArtist(value) {
 	document.getElementById("price").innerHTML = " ";
 
 }
-
-function question3(){
-		var img        = array[current].photo;
 	
+function question3(){
+	var img        = array[current].photo;
+	if (current <= 5){
 	document.getElementById("title").innerHTML = array[current].name;
 	document.getElementById("date").innerHTML = "Date of creation: " + array[current].dofp;
 	document.getElementById("colors").innerHTML = "Colors used: " + array[current].colors;
@@ -175,9 +186,23 @@ function question3(){
 	document.getElementById("price").innerHTML = "Price: " + array[current].price;
 	document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
 	document.getElementById("painting").src = img;
+	
+	} else {
+		document.getElementById("title").innerHTML = array[current].name;
+		document.getElementById("date").innerHTML = "Date of birth: " + array[current].dofb;
+		document.getElementById("colors").innerHTML = "";
+		document.getElementById("dimensions").innerHTML = "";
+		document.getElementById("location").innerHTML = "Place of living: " + array[current].location;
+		document.getElementById("artist").innerHTML = "";
+		document.getElementById("price").innerHTML = "Famous work: " + array[current].famousWorks;
+		document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
+		document.getElementById("painting").src = img;
+
 		
-		modal.style.display = "block";
-}
+	}
+	modal.style.display = "block";
+
+	}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
