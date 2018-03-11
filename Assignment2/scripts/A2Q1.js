@@ -1,5 +1,5 @@
 var sn = new Object();
-sn.photo = "assets/starryNight.jpg";
+sn.photo = "./assets/starryNight.jpg";
 sn.name = "The Starry Night";
 sn.artist = "Vincent Van Gogh";
 sn.dofp = "1889";
@@ -11,7 +11,7 @@ sn.price = "$15,000";
 sn.description = "Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an idealized village.";
 
 var vvg = new Object();
-vvg.photo = "assets/vvg.jpg";
+vvg.photo = "./assets/vvg.jpg";
 vvg.name = "Vincent Van Gogh";
 vvg.dofb = "<br>March 30, 1853 - July 29, 1890";
 vvg.location = "Netherlands";
@@ -21,7 +21,7 @@ vvg.description = "Vincent Willem van Gogh was born on March 30, 1853 in Zundert
 
 
 var adam = new Object();
-adam.photo = "assets/adam.jpg";
+adam.photo = "./assets/adam.jpg";
 adam.name = "The Creation of Adam";
 adam.artist = "Michelangelo";
 adam.dofp = "1508-1512";
@@ -33,7 +33,7 @@ adam.description = "It illustrates the Biblical creation narrative from the Book
 adam.price = "$20,000";
 
 var m = new Object();
-m.photo = "assets/m3.jpg";
+m.photo = "./assets/m3.jpg";
 m.name = "Michelangelo";
 m.dofb = "<br>March 6, 1475";
 m.location = "Italy";
@@ -42,7 +42,7 @@ m.famousWorks = "<br>The Creation of Adam,<br>David,<br>The Last Judgement";
 m.description = "Michelangelo was born March 6, 1475 in Caprese, Italy. He was considered one of the most famous artists of the Italian Renaissance. Michelangelo was many things: sculptor, poet, architect and painter. He died in Rome, Italy on February 18, 1564 at the age of 88.";
 
 var kiss = new Object();
-kiss.photo = "assets/kiss.jpg";
+kiss.photo = "./assets/kiss.jpg";
 kiss.name = "The Kiss";
 kiss.artist = "Gustav Klimt";
 kiss.dofp = "1907-1908";
@@ -54,7 +54,7 @@ kiss.description = "The painting depicts a couple embracing one another, their b
 kiss.price = "$18,000";
 
 var klimt = new Object();
-klimt.photo = "assets/klimt.jpg";
+klimt.photo = "./assets/klimt.jpg";
 klimt.name = "Gustav Klimt";
 klimt.dofb = "<br>July 14, 1862 - Feb. 6, 1918";
 klimt.location = "Austria";
@@ -64,7 +64,7 @@ klimt.description = "Gustav Klimt was born on July 14, 1862 in Vienna, Austria. 
 
 
 var ml = new Object();
-ml.photo = "assets/monalisaResize.jpg";
+ml.photo = "./assets/monalisaResize.jpg";
 ml.name = "Mona Lisa";
 ml.artist = "Leonardo da Vinci";
 ml.dofp = "1503-(1506-1517)";
@@ -76,7 +76,7 @@ ml.description = "The painting is thought to be a portrait of Lisa Gherardini, t
 ml.price = "$30,000";
 
 var ldv = new Object();
-ldv.photo = "assets/ldv.jpg"
+ldv.photo = "./assets/ldv.jpg"
 ldv.name = "Leonardo Da Vinci";
 ldv.dofb = "<br>April 15, 1452 - May 2, 1519";
 ldv.location = "Italy";
@@ -86,7 +86,7 @@ ldv.description = "Leondardo da Vinci was born on April 15, 1452 in Vinci, Italy
 
 
 var s = new Object();
-s.photo = "assets/screamResize.jpg";
+s.photo = "./assets/screamResize.jpg";
 s.name = "The Scream";
 s.artist = "Edvard Munch";
 s.dofp = "1893";
@@ -98,7 +98,7 @@ s.description = "The works show a figure with an agonized expression against a l
 s.price = "$45,000";
 
 var em = new Object();
-em.photo = "assets/em.jpg"
+em.photo = "./assets/em.jpg"
 em.name = "Edvard Munch";
 em.dofb = "<br>Dec. 12, 1863 - Jan. 23, 1944";
 em.location = "Norway";
@@ -108,7 +108,7 @@ em.description = "Edvard Munch was born on December 12, 1863 in Loten, Norway. H
 
 
 var pearl = new Object();
-pearl.photo = "assets/final.jpg";
+pearl.photo = "./assets/final.jpg";
 pearl.name = "Girl with a Pearl Earring";
 pearl.artist = "Johannes Vermeer";
 pearl.dofp = "1665";
@@ -120,7 +120,7 @@ pearl.description = "It is a tronie of a girl wearing a headscarf and a pearl ea
 pearl.price = "$21,000";
 
 var jv = new Object();
-jv.photo = "assets/jv.jpg";
+jv.photo = "./assets/jv.jpg";
 jv.name = "Johannes Vermeer";
 jv.dofb = "<br>Oct. 31, 1632 - Dec. 15, 1675";
 jv.location = "Netherlands";
@@ -131,6 +131,11 @@ jv.description = "Johannes Vermeer was born on October 31, 1632 in Delft, Nether
 
 var array = [sn,adam,kiss,ml,s,pearl];
 var artist = [vvg,m,klimt,ldv,em,jv];
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
+var current = 0;
+
+
 
 // When the user clicks the button,
 function displayInfo(value) {
@@ -138,9 +143,9 @@ function displayInfo(value) {
 	var name        = array[value].name;
 	var description = array[value].description;
 	var price		= array[value].price;
-
+	current = value;
 	document.getElementById("photo").src = img;
-	document.getElementById("name").innerHTML = "<strong>Name: </strong>"  + "<a href=./Pages/A2Q3.html onclick=check()>" + name;
+	document.getElementById("name").innerHTML = /*"<strong>Name: </strong>"  + "<a href=./Pages/A2Q3.html onclick=check()>" + */ name;
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
 	
@@ -156,6 +161,27 @@ function displayArtist(value) {
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = " ";
 
+}
+
+function question3(){
+		var img        = array[current].photo;
+	
+	document.getElementById("title").innerHTML = array[current].name;
+	document.getElementById("date").innerHTML = "Date of creation: " + array[current].dofp;
+	document.getElementById("colors").innerHTML = "Colors used: " + array[current].colors;
+	document.getElementById("dimensions").innerHTML = "Dimensions of painting: " + array[current].dimensions;
+	document.getElementById("location").innerHTML = "Location being held: " + array[current].curlocation;
+	document.getElementById("artist").innerHTML = "Artist: " + array[current].artist;
+	document.getElementById("price").innerHTML = "Price: " + array[current].price;
+	document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
+	document.getElementById("painting").src = img;
+		
+		modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
 }
 
 

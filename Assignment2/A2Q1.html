@@ -89,17 +89,37 @@
 	</nav>
 
 	<div class="pageHeader"><h1>Current Features</h1></div>
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 				<img  id="photo" src="assets/starryNight.jpg">
 			</div>
 			<div class="col-md-6 right">
-				<p id="name"><strong>Name: </strong>The Starry Night</p>
+				<a id="name" onclick="question3();"><strong>Name: </strong>The Starry Night</a>
 				<p id="description"><strong>Description: </strong>Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Remy-de-Provence, just before sunrise, with the addition of an idealized village.</p>
 				<p id="price"><strong>Price: </strong>$15,000</p>
 			</div>
+		</div>
+	</div>
+	<div id="myModal" class="modal">
+		<div class"modal-content">
+			<div class="modal-header">
+			        <span class="close">&times;</span>
+			        <h2 id="title">PlaceHolder</h2>
+		    	</div>
+			<div class="modal-body">
+			    	<img id="painting" src="" style="max-width: 500px;">
+				<div id="info" >	
+					<p id="date" value="Date of Creation: "> </p>
+					<p id="colors"></p>
+					<p id="dimensions"></p>
+					<p id="location"></p>
+					<p id="artist"></p>
+					<p id="price"></p>
+					<p id="genre"></p>			
+				</div>
+		    	</div>
+
 		</div>
 	</div>
 
