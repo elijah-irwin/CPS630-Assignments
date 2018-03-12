@@ -82,7 +82,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="shopCart" href="">Shopping Cart <i class="fas fa-shopping-cart"></i></a></li>
+				<li><a class="shopCart" onclick="showCart();">Shopping Cart <i class="fas fa-shopping-cart"></i></a></li>
 			</ul>
 
 		</div>
@@ -122,8 +122,38 @@
 
 		</div>
 	</div>
+	<div id="shoppingCart" class="modal">
+		<div class"modal-content">
+			<div class="modal-header">
+			        <span class="close">&times;</span>
+			        <h2 id="title">Your Shopping Cart</h2>
+		    	</div>
+			<div class="modal-body" style="float:left;">
+				<div id="info"  >	
+					<p>Select a painting to add to your cart:</p>	
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="0" id="sn">The Starry Night</button> <br>
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="1" id="adam">The Creation of Adam</button> <br>
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="2" id="kss">The Kiss</button> <br>
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="3" id="ml">Mona Lisa</button> <br>
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="4" id="s">S</button> <br>
+					<button type="button" onclick="updateToCart(this.value, this.id);" value="5" id="pearl">Girl With a Pearl Earring</button> <br>
+					<p id="cart" style="height:200px;border: solid"></p>
+					<p>Select your delivery method:</p>
+					<input type="radio" name="shipping" id="pickup">Pickup (+ $0.00)<br>
+					<input type="radio" name="shipping" id="deliver">Delivery (+ 30.00)<br>
+					<p id="prefinal"></p>
+					<button type="button" onclick="finalPrice()">Calculate Final Price</button>
+					<p id="finalPrice"></p>
+				</div>
+		    	</div>
 
+		</div>
+	</div>
+
+	
+	
 	<script type="text/javascript" src="scripts/A2Q1.js"></script>
-
+	
+		
 </body>
 </html>

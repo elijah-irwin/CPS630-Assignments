@@ -138,14 +138,19 @@ jv.description = "Johannes Vermeer was born on October 31, 1632 in Delft, Nether
 
 
 var array = [sn,adam,kiss,ml,s,pearl,vvg,m,klimt,ldv,em,jv];
+var comp = [sn,adam,kiss,ml,s,pearl];
+var cart = [];
 //var artist = [vvg,m,klimt,ldv,em,jv];
 
 var modal = document.getElementById('myModal');
+var shopCart = document.getElementById('shoppingCart');
+var price = 0;
+
 var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
+
 
 var current = 0;
-
-
 
 // When the user clicks the button,
 function displayInfo(value) {
@@ -160,7 +165,7 @@ function displayInfo(value) {
 	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
 	
 }
-	
+	/*
 function displayArtist(value) {
 	var img         = array[value].photo;
 	var name        = array[value].name;
@@ -172,10 +177,10 @@ function displayArtist(value) {
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = " ";
 
-}
+}*/
 	
 function question3(){
-	var img        = array[current].photo;
+	var img = array[current].photo;
 	if (current <= 5){
 	document.getElementById("title").innerHTML = array[current].name;
 	document.getElementById("date").innerHTML = "Date of creation: " + array[current].dofp;
@@ -197,17 +202,51 @@ function question3(){
 		document.getElementById("price").innerHTML = "Famous work: " + array[current].famousWorks;
 		document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
 		document.getElementById("painting").src = img;
-
 		
 	}
 	modal.style.display = "block";
 
 	}
+function showCart(){
+	shopCart.style.display = "block";
+}
+function updateToCart(x, y){ //x is value, number, y is id
+	document.getElementById(y).disabled = true;
+	
+	cart.push(y);
+	var cost = comp[x].price;
+	var add = Number(cost.replace(/[^0-9\.-]+/g,""));
+	price = price + add;
+	//alert(price);
 
+	var para = document.createElement("p");
+	var node = document.createTextNode(comp[x].name);
+	para.appendChild(node);
+
+	var element = document.getElementById("cart");
+	element.appendChild(para);
+
+	document.getElementById("prefinal").innerHTML = "Price before Tax + Shipping " + price;
+}
+	
+function finalPrice(){
+	price = price + (0.13 * price);
+	if(document.getElementById("deliver").checked == true){
+		price = price + 50;
+	}
+	var final = price; 
+	document.getElementById("finalPrice").innerHTML = "Final price with Tax + Shipping: " + final;
+	
+}
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+	modal.style.display = "none";
 }
+
+span2.onclick = function() {
+	shopCart.style.display = "none";
+}
+
 
 
 

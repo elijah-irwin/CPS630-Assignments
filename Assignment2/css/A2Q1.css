@@ -28,6 +28,9 @@ li.dropdown {
     display: block;
     text-align: left;
 }
+.shopCart:hover{
+   cursor: pointer;
+}
 
 .dropdown-content a:hover {background-color: #f1f1f1}
 
