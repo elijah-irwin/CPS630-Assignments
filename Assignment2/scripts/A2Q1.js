@@ -212,7 +212,7 @@ function showCart(){
 }
 function updateToCart(x, y){ 
 	document.getElementById(y).disabled = true;
-	
+	document.getElementById("last").disabled = false;	
 	cart.push(y);
 	var cost = comp[x].price;
 	var add = Number(cost.replace(/[^0-9\.-]+/g,""));
@@ -233,6 +233,7 @@ function finalPrice(){
 	if(document.getElementById("deliver").checked == true){
 		price = price + 50;
 	}
+	document.getElementById("last").disabled = true;
 	var final = price; 
 	document.getElementById("finalPrice").innerHTML = "Final price with Tax + Shipping: " + final;
 	
