@@ -210,14 +210,13 @@ function question3(){
 function showCart(){
 	shopCart.style.display = "block";
 }
-function updateToCart(x, y){ //x is value, number, y is id
+function updateToCart(x, y){ 
 	document.getElementById(y).disabled = true;
 	
 	cart.push(y);
 	var cost = comp[x].price;
 	var add = Number(cost.replace(/[^0-9\.-]+/g,""));
 	price = price + add;
-	//alert(price);
 
 	var para = document.createElement("p");
 	var node = document.createTextNode(comp[x].name);
