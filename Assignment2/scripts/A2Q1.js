@@ -8,7 +8,7 @@ sn.curlocation = "Museum of Modern Art";
 sn.medium = "Oil On Canvas";
 sn.genre = "Post-Impressionism, Modern";
 sn.price = "$15,000";
-sn.description = "Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an idealized village.";
+sn.description = "Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Remy-de-Provence, just before sunrise, with the addition of an idealized village.";
 sn.colors = "Dark blue, yellow, and black nightscape colors"
 
 
@@ -33,7 +33,7 @@ adam.medium = "Paint, Plaster";
 adam.genre = "Renaissance";
 adam.description = "It illustrates the Biblical creation narrative from the Book of Genesis in which God gives life to Adam, the first man. ";
 adam.price = "$20,000";
-adam.colors = "Mute and skin colors, as well as some landscape colors";
+adam.colors = "Mute and skin colors, <br>as well as some landscape colors";
 
 var m = new Object();
 m.photo = "./assets/m3.jpg";
@@ -55,7 +55,7 @@ kiss.medium = "Oil On Canvas";
 kiss.genre = "Symbolism, Modern";
 kiss.description = "The painting depicts a couple embracing one another, their bodies entwined in elaborate robes decorated in a style influenced by the contemporary Art Nouveau style and the organic forms of the earlier Arts and Crafts movement. ";
 kiss.price = "$18,000";
-kiss.colors = "Very abstract colors, mostly muted yellow, as well as a mix of some green and pink colours";
+kiss.colors = "Very abstract colors, <br>mostly muted yellow, <br>as well as a mix of some green and pink colours";
 
 var klimt = new Object();
 klimt.photo = "./assets/klimt.jpg";
@@ -78,7 +78,7 @@ ml.medium = "Oil On Panel";
 ml.genre = "Portrait";
 ml.description = "The painting is thought to be a portrait of Lisa Gherardini, the wife of Francesco del Giocondo.";
 ml.price = "$30,000";
-ml.colors = "Generally dark landscape colors, as well as dark clothing colors, and quite typical skin color for the face";
+ml.colors = "Generally dark landscape colors, <br>as well as dark clothing colors, <br>and quite typical skin color for the face";
 
 var ldv = new Object();
 ldv.photo = "./assets/ldv.jpg"
@@ -101,7 +101,7 @@ s.medium = "Oil, Tempera, Pastel, <br> Crayon on Cardboard";
 s.genre = "Expressionism";
 s.description = "The works show a figure with an agonized expression against a landscape with a tumultuous orange sky.";
 s.price = "$45,000";
-s.colors = "Bright red and orange colors for the landscape, as well as some dark colors for the character and river";
+s.colors = "Bright red and orange colors for the landscape, <br>as well as some dark colors for the character and river";
 
 var em = new Object();
 em.photo = "./assets/em.jpg"
@@ -124,7 +124,7 @@ pearl.medium = "Oil On Canvas";
 pearl.genre = "Portrait";
 pearl.description = "It is a tronie of a girl wearing a headscarf and a pearl earring. ";
 pearl.price = "$21,000";
-pearl.colors = "A mix of blue, yellow, and skin color for the character with a black background";
+pearl.colors = "A mix of blue, yellow, <br>and skin color for the character <br>with a black background";
 
 
 var jv = new Object();
@@ -154,15 +154,25 @@ var current = 0;
 
 // When the user clicks the button,
 function displayInfo(value) {
+	current = value;
+	if (value >=6) {
 	var img         = array[value].photo;
 	var name        = array[value].name;
 	var description = array[value].description;
-	var price		= array[value].price;
-	current = value;
-	document.getElementById("photo").src = img;
-	document.getElementById("name").innerHTML = name;
-	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
-	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
+		document.getElementById("photo").src = img;
+		document.getElementById("name").innerHTML = name;
+		document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
+		document.getElementById("price").innerHTML = "";
+	} else {
+		var img         = array[value].photo;
+		var name        = array[value].name;
+		var description = array[value].description;
+		var price		= array[value].price;
+		document.getElementById("photo").src = img;
+		document.getElementById("name").innerHTML = name;
+		document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
+		document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
+	}
 }
 
 /*
@@ -198,8 +208,8 @@ function question3(){
 		document.getElementById("dimensions").innerHTML = "";
 		document.getElementById("location").innerHTML = "<strong>Place of Living: </strong>" + array[current].location;
 		document.getElementById("artist").innerHTML = "";
-		document.getElementById("famousWorks").innerHTML = "<strong>Famous Works: </strong>" + array[current].famousWorks;
 		document.getElementById("genre").innerHTML = "<strong>Genre: </strong>" + array[current].genre;
+		document.getElementById("famousWorks").innerHTML = "<strong>Famous Works: </strong>" + array[current].famousWorks;
 		document.getElementById("price").innerHTML = "";
 		document.getElementById("painting").src = img;
 		
@@ -228,7 +238,7 @@ function updateToCart(x, y){
 	var element = document.getElementById("cart");
 	element.appendChild(para);
 
-	document.getElementById("prefinal").innerHTML = "Price before Tax + Shipping " + price;
+	document.getElementById("prefinal").innerHTML = "<strong>Total before Tax + Shipping: </strong>$" + price;
 }
 	
 function finalPrice(){
@@ -238,7 +248,7 @@ function finalPrice(){
 	}
 	document.getElementById("last").disabled = true;
 	var final = price; 
-	document.getElementById("finalPrice").innerHTML = "Final price with Tax + Shipping: " + final;
+	document.getElementById("finalPrice").innerHTML = "<strong>Total: </strong>$" + final;
 	
 }
 // When the user clicks on <span> (x), close the modal

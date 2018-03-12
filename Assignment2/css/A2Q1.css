@@ -177,8 +177,48 @@ li.dropdown {
 
 #info {
     font-size:1.3em;
-    margin-left: 20px;
-    display:inline-block;
+    padding:20px;
+    text-decoration-style: bold;
+    display: inline-block;
+}
+
+#info2 {
+    font-size: 1.3em;
+}
+
+#finalPrice {
+    margin-top: 10px;
+
+}
+
+.leRight {
+}
+
+#name {
+    font-size: 1.5em;
+}
+
+.checkoutButton {
+    margin:10px;
+    background: none;
+    border:2px solid #96CEB4;
+    border-radius: 2px;
+
+}
+
+.finalButton {
+    font-size: 1.2em;
+    background: none;
+    margin-top: 10px;
+    border:4px solid #FF6F69;
+    border-radius: 2px;
+}
+
+#cart {
+    height:220px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 /* Add Animation */
@@ -216,6 +256,9 @@ li.dropdown {
 
 .modal-body {
     padding: 16px 16px;
+    background-color: white;
+    display:inline-block;
+    width:100%;
 }
 
 .modal-footer {
