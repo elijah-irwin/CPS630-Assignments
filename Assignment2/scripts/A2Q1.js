@@ -163,9 +163,9 @@ function displayInfo(value) {
 	document.getElementById("name").innerHTML = name;
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + price;
-	
 }
-	/*
+
+/*
 function displayArtist(value) {
 	var img         = array[value].photo;
 	var name        = array[value].name;
@@ -176,40 +176,43 @@ function displayArtist(value) {
 	document.getElementById("name").innerHTML = "<h2>"   + name + "</h2>";
 	document.getElementById("description").innerHTML = "<strong>Description: </strong>" + description;
 	document.getElementById("price").innerHTML = " ";
-
 }*/
 	
 function question3(){
 	var img = array[current].photo;
 	if (current <= 5){
 	document.getElementById("title").innerHTML = array[current].name;
-	document.getElementById("date").innerHTML = "Date of creation: " + array[current].dofp;
-	document.getElementById("colors").innerHTML = "Colors used: " + array[current].colors;
-	document.getElementById("dimensions").innerHTML = "Dimensions of painting: " + array[current].dimensions;
-	document.getElementById("location").innerHTML = "Location being held: " + array[current].curlocation;
-	document.getElementById("artist").innerHTML = "Artist: " + array[current].artist;
-	document.getElementById("price").innerHTML = "Price: " + array[current].price;
-	document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
+	document.getElementById("date").innerHTML = "<strong>Date of Creation: </strong>" + array[current].dofp;
+	document.getElementById("colors").innerHTML = "<strong>Colors: </strong>" + array[current].colors;
+	document.getElementById("dimensions").innerHTML = "<strong>Dimensions: </strong>" + array[current].dimensions;
+	document.getElementById("location").innerHTML = "<strong>Current Location: </strong>" + array[current].curlocation;
+	document.getElementById("artist").innerHTML = "<strong>Artist: </strong>" + array[current].artist;
+	document.getElementById("price").innerHTML = "<strong>Price: </strong>" + array[current].price;
+	document.getElementById("genre").innerHTML = "<strong>Genre: </strong>" + array[current].genre;
 	document.getElementById("painting").src = img;
 	
 	} else {
 		document.getElementById("title").innerHTML = array[current].name;
-		document.getElementById("date").innerHTML = "Date of birth: " + array[current].dofb;
+		document.getElementById("date").innerHTML = "<strong>Date of Birth: </strong>" + array[current].dofb;
 		document.getElementById("colors").innerHTML = "";
 		document.getElementById("dimensions").innerHTML = "";
-		document.getElementById("location").innerHTML = "Place of living: " + array[current].location;
+		document.getElementById("location").innerHTML = "<strong>Place of Living: </strong>" + array[current].location;
 		document.getElementById("artist").innerHTML = "";
-		document.getElementById("price").innerHTML = "Famous work: " + array[current].famousWorks;
-		document.getElementById("genre").innerHTML = "Genre: " + array[current].genre;
+		document.getElementById("famousWorks").innerHTML = "<strong>Famous Works: </strong>" + array[current].famousWorks;
+		document.getElementById("genre").innerHTML = "<strong>Genre: </strong>" + array[current].genre;
+		document.getElementById("price").innerHTML = "";
 		document.getElementById("painting").src = img;
 		
 	}
 	modal.style.display = "block";
 
 	}
+
+
 function showCart(){
 	shopCart.style.display = "block";
 }
+
 function updateToCart(x, y){ 
 	document.getElementById(y).disabled = true;
 	
