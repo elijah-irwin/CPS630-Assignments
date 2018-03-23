@@ -151,7 +151,7 @@ span.psw {
             //echo "<br>" . "Authentication successful";
             //header('Location: www.google.com');
             echo "<script type='text/javascript'>alert('Login successful, redirecting...');</script>";               
-            echo "<script type='text/javascript'>window.location.href = 'index.html';</script>";               
+            echo "<script type='text/javascript'>window.location.href = 'admin.php';</script>";               
             exit();
         } else {
             echo "<script type='text/javascript'>alert('Wrong username/password');</script>";   
