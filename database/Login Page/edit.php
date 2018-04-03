@@ -14,7 +14,7 @@ Allows user to edit specific entry in database
 
 // since this form is used multiple times in this file, I have made it a function that is easily reusable
 
-function renderForm($id, $firstname, $lastname, $error)
+function renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description)
 
 {
 
@@ -50,15 +50,25 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 
 <form action="" method="post">
 
-<input type="hidden" name="id" value="<?php echo $id; ?>"/>
+<input type="hidden" name="id" value="<?php echo $ArtistId; ?>"/>
 
 <div>
 
-<p><strong>ID:</strong> <?php echo $id; ?></p>
+<p><strong>ID:</strong> <?php echo $ArtistId; ?></p>
 
-<strong>First Name: *</strong> <input type="text" name="firstname" value="<?php echo $firstname; ?>" required><br/>
+<strong>Photo: *</strong> <input type="text" name="firstname" value="<?php echo $Photo; ?>" required><br/>
 
-<strong>Last Name: *</strong> <input type="text" name="lastname" value="<?php echo $lastname; ?>" required><br/>
+<strong>Name: *</strong> <input type="text" name="lastname" value="<?php echo $Name; ?>" required><br/>
+
+<strong>Date of Birtb: *</strong> <input type="text" name="birth" value="<?php echo $DofB; ?>" required><br/>
+
+<strong>Place of Living: *</strong> <input type="text" name="living" value="<?php echo $PofL; ?>" required><br/>
+
+<strong>Genre: *</strong> <input type="text" name="genre" value="<?php echo $Genre; ?>" required><br/>
+
+<strong>Famous Works: *</strong> <input type="text" name="works" value="<?php echo $FamousWorks; ?>" required><br/>
+
+<strong>Description: *</strong> <input type="text" name="description" value="<?php echo $Description; ?>" required><br/>
 
 <input type="submit" name="submit" value="Submit">
 
@@ -86,16 +96,15 @@ $server = 'localhost';
 
 $user = 'root';
 
-$pass = 'password';
+$pass = 'cps630group43';
 
-$db = 'myDB';
+$db = 'cps630';
 
 
 
 // Connect to Database
 
-$conn = mysql_connect($server, $user, $pass);
-mysql_select_db($db);
+$conn = new mysqli($server, $user, $pass, $db);
 
 
 
@@ -115,15 +124,24 @@ if (is_numeric($_POST['id']))
 
 $id = $_POST['id'];
 
-$firstname = mysql_real_escape_string(htmlspecialchars($_POST['firstname']));
+$photo = mysql_real_escape_string(htmlspecialchars($_POST['Photo']));
 
-$lastname = mysql_real_escape_string(htmlspecialchars($_POST['lastname']));
+$name = mysql_real_escape_string(htmlspecialchars($_POST['Name']));
 
+$dofb = mysql_real_escape_string(htmlspecialchars($_POST['DofB']));
+
+$pofl = mysql_real_escape_string(htmlspecialchars($_POST['PofL']));
+
+$genre = mysql_real_escape_string(htmlspecialchars($_POST['Genre']));
+
+$works = mysql_real_escape_string(htmlspecialchars($_POST['FamousWorks']));
+
+$description = mysql_real_escape_string(htmlspecialchars($_POST['Description']));
 
 
 // check that firstname/lastname fields are both filled in
 
-if ($firstname == '' || $lastname == '')
+if ($Name == '' || $Description == '')
 
 {
 
@@ -135,7 +153,7 @@ $error = 'ERROR: Please fill in all required fields!';
 
 //error, display form
 
-renderForm($id, $firstname, $lastname, $error);
+renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description);
 
 }
 
@@ -145,7 +163,7 @@ else
 
 // save the data to the database
 
-mysql_query("UPDATE names SET firstname='$firstname', lastname='$lastname' WHERE id='$id'")
+mysql_query("UPDATE names SET Photo='$photo', Name='$name', DofB='$dofb', PofL='$pofl', Genre='$genre', FamousWorks='$works', Description='$description' WHERE id='$id'")
 
 or die(mysql_error());
 
@@ -189,7 +207,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0)
 
 $id = $_GET['id'];
 
-$result = mysql_query("SELECT * FROM names WHERE id=$id")
+$result = mysql_query("SELECT * FROM artists WHERE ArtistId=$id")
 
 or die(mysql_error());
 
@@ -207,15 +225,28 @@ if($row)
 
 // get data from db
 
-$firstname = $row['firstname'];
+$ArtistId = $row['ArtistId'];
 
-$lastname = $row['lastname'];
+$Photo = $row['Photo'];
+
+$Name = $row['Name'];
+
+$DofB = $row['DofB'];
+
+$PofL = $row['PofL'];
+
+$Genre = $row['Genre'];
+
+$FamousWorks = $row['FamousWorks'];
+
+$Description = $row['Description'];
+
 
 
 
 // show form
+renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description)
 
-renderForm($id, $firstname, $lastname, '');
 
 }
 
