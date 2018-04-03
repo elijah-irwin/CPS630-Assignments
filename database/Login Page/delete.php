@@ -31,19 +31,19 @@ mysql_select_db($db);
 
 // check if the 'id' variable is set in URL, and check that it is valid
 
-if (isset($_GET['id']) && is_numeric($_GET['id']))
+if (isset($_GET['ArtistId']) && is_numeric($_GET['ArtistId']))
 
 {
 
 // get id value
 
-$id = $_GET['id'];
+$id = $_GET['ArtistId'];
 
 
 
 // delete the entry
 
-$result = mysql_query("DELETE FROM names WHERE id=$id")
+$result = mysql_query("DELETE FROM artists WHERE ArtistId=$id")
 
 or die(mysql_error());
 
