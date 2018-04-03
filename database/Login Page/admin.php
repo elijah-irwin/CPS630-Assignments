@@ -14,13 +14,13 @@ $db = 'myDB';
 // Connect to Database
 
 $conn = new mysqli($server, $user, $pass, $db);
-$cart = mysqli_query($conn, "SELECT * FROM shoppingcart");
-$artists = mysql_query($conn, "SELECT * FROM artists");
-$museums = mysql_query($conn, "SELECT * FROM museums");
+$artists = mysqli_query($conn, "SELECT * FROM artists");
+/*$museums = mysql_query($conn, "SELECT * FROM museums");
 $works = mysql_query($conn, "SELECT * FROM artworks");
+$cart = mysqli_query($conn, "SELECT * FROM shoppingcart");
 
  
-
+ */
 // display data in table
 
 
@@ -50,15 +50,17 @@ echo '<td>' . $row['Name'] . '</td>';
 
 echo '<td>' . $row['DofB'] . '</td>';
 
+echo '<td>' . $row['PofL'] . '</td>';
+
 echo '<td>' . $row['Genre'] . '</td>';
 
 echo '<td>' . $row['FamousWorks'] . '</td>';
 
 echo '<td>' . $row['Description'] . '</td>';
 
-echo '<td><a href="edit.php?id=' . $row['id'] . '">Edit</a></td>';
+echo '<td><a href="edit.php?id=' . $row['ArtistId'] . '">Edit</a></td>';
 
-echo '<td><a href="delete.php?id=' . $row['id'] . '">Delete</a></td>';
+echo '<td><a href="delete.php?id=' . $row['ArtistId'] . '">Delete</a></td>';
 
 echo "</tr>";
 
@@ -71,7 +73,7 @@ echo "</tr>";
 echo "</table>";
 echo "<p><a href='add.php'>Add a new record</a></p>";
 
-
+/*
 echo "<h2>Artworks</h2>";
 
 
@@ -206,9 +208,9 @@ echo "</tr>";
 echo "</table>";
 echo "<p><a href='add.php'>Add a new record</a></p>";
 
- 
+ */
 ?>
-
+ 
 
 </body>
 

@@ -1,277 +1,105 @@
 <?php
 
-/*
-
-EDIT.PHP
-
-Allows user to edit specific entry in database
-
-*/
-
+$databaseHost = 'localhost';
+$databaseName = 'myDB';
+$databaseUsername = 'root';
+$databasePassword = 'password';
+ 
+$mysqli = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
 
 
-// creates the edit record form
-
-// since this form is used multiple times in this file, I have made it a function that is easily reusable
-
-function renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description)
-
-{
-
+if(isset($_POST['update']))
+{    
+    $id=$_POST['artistid'];
+    $photo=$_POST['photo'];
+    $name=$_POST['name'];
+    $dofb=$_POST['birth'];    
+    $loc=$_POST['location'];    
+    $genre=$_POST['genre'];    
+    $works=$_POST['works'];    
+    $description=$_POST['description'];    
+            
+        //updating the table
+    $result = "UPDATE artists SET Photo='$photo', Name='$name', DofB='$dofb', PofL='$loc', Genre='$genre', FamousWorks='$works', Description='$description' WHERE ArtistId='$id'";
+    $mysqli->query($result);
+        //redirectig to the display page. In our case, it is index.php
+    header("Location: admin.php");
+    
+}
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<?php
+//getting id from url
+$id = $_GET['id'];
+ 
+//selecting data associated with this particular id
+$result = mysqli_query($mysqli, "SELECT * FROM artists WHERE ArtistId=$id");
+ 
+while($res = mysqli_fetch_array($result))
+{
+    $artid = $res['ArtistId'];
+    $photo=$res['Photo'];
+    $name=$res['Name'];
+    $dofb=$res['DofB'];    
+    $loc=$res['PofL'];    
+    $genre=$res['Genre'];    
+    $works=$res['FamousWorks'];    
+    $description=$res['Description']; 
+}
+
+
+?>
 
 <html>
-
-<head>
-
-<title>Edit Record</title>
-
+<head>    
+    <title>Edit Data</title>
 </head>
-
+ 
 <body>
-
-<?php
-
-// if there are any errors, display them
-
-if ($error != '')
-
-{
-
-echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
-
-}
-
-?>
-
-
-
-<form action="" method="post">
-
-<input type="hidden" name="id" value="<?php echo $ArtistId; ?>"/>
-
-<div>
-
-<p><strong>ID:</strong> <?php echo $ArtistId; ?></p>
-
-<strong>Photo: *</strong> <input type="text" name="firstname" value="<?php echo $Photo; ?>" required><br/>
-
-<strong>Name: *</strong> <input type="text" name="lastname" value="<?php echo $Name; ?>" required><br/>
-
-<strong>Date of Birtb: *</strong> <input type="text" name="birth" value="<?php echo $DofB; ?>" required><br/>
-
-<strong>Place of Living: *</strong> <input type="text" name="living" value="<?php echo $PofL; ?>" required><br/>
-
-<strong>Genre: *</strong> <input type="text" name="genre" value="<?php echo $Genre; ?>" required><br/>
-
-<strong>Famous Works: *</strong> <input type="text" name="works" value="<?php echo $FamousWorks; ?>" required><br/>
-
-<strong>Description: *</strong> <input type="text" name="description" value="<?php echo $Description; ?>" required><br/>
-
-<input type="submit" name="submit" value="Submit">
-
-</div>
-
-</form>
-
+    <a href="admin.php">Back</a>
+    <br/><br/>
+    
+    <form name="form1" method="post" action="edit.php">
+        <table border="0">
+            <tr> 
+                <td>Artist Id</td>
+                <td><input type="text" name="artistid" value=<?php echo $_GET['id'];?>></td>
+            </tr>
+            <tr> 
+                <td>Photo</td>
+                <td><input type="text" name="photo" value="<?php echo $photo;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Name</td>
+                <td><input type="text" name="name" value="<?php echo $name;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Date of Birth</td>
+                <td><input type="text" name="birth" value="<?php echo $dofb;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Place of Living</td>
+                <td><input type="text" name="location" value="<?php echo $loc;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Genre</td>
+                <td><input type="text" name="genre" value="<?php echo $genre;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Famous Works</td>
+                <td><input type="text" name="works" value="<?php echo $works;?>"required></td>
+            </tr>
+            <tr> 
+                <td>Description</td>
+                <td><input type="text" name="description" value="<?php echo $description;?>"required></td>
+            </tr>
+  
+            <tr>
+            
+                <!--<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>-->
+                <td><input type="submit" name="update" value="Update"></td>
+            </tr>
+        </table>
+    </form>
 </body>
-
 </html>
-
-<?php
-
-}
-
-
-
-
-
-
-
-// connect to the database
-
-$server = 'localhost';
-
-$user = 'root';
-
-$pass = 'cps630group43';
-
-$db = 'cps630';
-
-
-
-// Connect to Database
-
-$conn = new mysqli($server, $user, $pass, $db);
-
-
-
-// check if the form has been submitted. If it has, process the form and save it to the database
-
-if (isset($_POST['submit']))
-
-{
-
-// confirm that the 'id' value is a valid integer before getting the form data
-
-if (is_numeric($_POST['id']))
-
-{
-
-// get form data, making sure it is valid
-
-$id = $_POST['id'];
-
-$photo = mysql_real_escape_string(htmlspecialchars($_POST['Photo']));
-
-$name = mysql_real_escape_string(htmlspecialchars($_POST['Name']));
-
-$dofb = mysql_real_escape_string(htmlspecialchars($_POST['DofB']));
-
-$pofl = mysql_real_escape_string(htmlspecialchars($_POST['PofL']));
-
-$genre = mysql_real_escape_string(htmlspecialchars($_POST['Genre']));
-
-$works = mysql_real_escape_string(htmlspecialchars($_POST['FamousWorks']));
-
-$description = mysql_real_escape_string(htmlspecialchars($_POST['Description']));
-
-
-// check that firstname/lastname fields are both filled in
-
-if ($Name == '' || $Description == '')
-
-{
-
-// generate error message
-
-$error = 'ERROR: Please fill in all required fields!';
-
-
-
-//error, display form
-
-renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description);
-
-}
-
-else
-
-{
-
-// save the data to the database
-
-mysql_query("UPDATE names SET Photo='$photo', Name='$name', DofB='$dofb', PofL='$pofl', Genre='$genre', FamousWorks='$works', Description='$description' WHERE id='$id'")
-
-or die(mysql_error());
-
-
-
-// once saved, redirect back to the view page
-
-header("Location: admin.php");
-
-}
-
-}
-
-else
-
-{
-
-// if the 'id' isn't valid, display an error
-
-echo 'Error!';
-
-}
-
-}
-
-else
-
-// if the form hasn't been submitted, get the data from the db and display the form
-
-{
-
-
-
-// get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
-
-if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0)
-
-{
-
-// query db
-
-$id = $_GET['id'];
-
-$result = mysql_query("SELECT * FROM artists WHERE ArtistId=$id")
-
-or die(mysql_error());
-
-$row = mysql_fetch_array($result);
-
-
-
-// check that the 'id' matches up with a row in the databse
-
-if($row)
-
-{
-
-
-
-// get data from db
-
-$ArtistId = $row['ArtistId'];
-
-$Photo = $row['Photo'];
-
-$Name = $row['Name'];
-
-$DofB = $row['DofB'];
-
-$PofL = $row['PofL'];
-
-$Genre = $row['Genre'];
-
-$FamousWorks = $row['FamousWorks'];
-
-$Description = $row['Description'];
-
-
-
-
-// show form
-renderForm($ArtistId, $Photo, $Name, $DofB, $PofL, $Genre, $FamousWorks, $Description)
-
-
-}
-
-else
-
-// if no match, display result
-
-{
-
-echo "No results!";
-
-}
-
-}
-
-else
-
-// if the 'id' in the URL isn't valid, or if there is no 'id' value, display an error
-
-{
-
-echo 'Error!';
-
-}
-
-}
-
-?>

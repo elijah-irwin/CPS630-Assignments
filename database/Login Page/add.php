@@ -1,156 +1,80 @@
 <?php
-
-/*
-
-NEW.PHP
-
-Allows user to create a new entry in the database
-
-*/
-
+//including the database connection file
+$databaseHost = 'localhost';
+$databaseName = 'myDB';
+$databaseUsername = 'root';
+$databasePassword = 'password';
+ 
+$mysqli = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
 
 
-// creates the new record form
+if(isset($_POST['Submit'])) { 
 
-// since this form is used multiple times in this file, I have made it a function that is easily reusable
-
-function renderForm($first, $last, $error)
-
-{
-
+    $id=$_POST['artistid'];
+    $photo=$_POST['photo'];
+    $name=$_POST['name'];
+    $dofb=$_POST['birth'];    
+    $loc=$_POST['location'];    
+    $genre=$_POST['genre'];    
+    $works=$_POST['works'];    
+    $description=$_POST['description'];     
+    
+    $result = mysqli_query($mysqli, "INSERT INTO artists(ArtistId,Photo,Name,DofB,PofL,Genre,FamousWorks,Description) VALUES('$id','$photo','$name','$dofb', '$loc', '$genre', '$works', '$description')");
+    //$result = "UPDATE artists SET Photo='$photo', Name='$name', DofB='$dofb', PofL='$loc', Genre='$genre', FamousWorks='$works', Description='$description' WHERE ArtistId='$id'";        
+        //display success message
+    echo "<font color='green'>Data added successfully.";
+    echo "<br/><a href='index.php'>View Result</a>";
+    
+}
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
 <html>
-
 <head>
-
-<title>New Record</title>
-
+    <title>Add Data</title>
 </head>
-
+ 
 <body>
-
-<?php
-
-// if there are any errors, display them
-
-if ($error != '')
-
-{
-
-echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
-
-}
-
-?>
-
-
-
-<form action="" method="post">
-
-<div>
-
-<strong>First Name: *</strong> <input type="text" name="firstname" value="<?php echo $first; ?>" required><br/>
-
-<strong>Last Name: *</strong> <input type="text" name="lastname" value="<?php echo $last; ?>" required><br/>
-
-<p>* required</p>
-
-<input type="submit" name="submit" value="Submit">
-
-</div>
-
-</form>
-
+    <a href="admin.php">Home</a>
+    <br/><br/>
+ 
+    <form action="add.php" method="post" name="form1">
+        <table border="0">
+            <tr> 
+                <td>Artist Id</td>
+                <td><input type="text" name="artistid" required></td>
+            </tr>
+            <tr> 
+                <td>Photo</td>
+                <td><input type="text" name="photo" required></td>
+            </tr>
+            <tr> 
+                <td>Name</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr> 
+                <td>Date of Birth</td>
+                <td><input type="text" name="birth" required></td>
+            </tr>
+            <tr> 
+                <td>Place of Living</td>
+                <td><input type="text" name="location" required></td>
+            </tr>
+            <tr> 
+                <td>Genre</td>
+                <td><input type="text" name="genre" required></td>
+            </tr>
+            <tr> 
+                <td>Famous Works</td>
+                <td><input type="text" name="works" required></td>
+            </tr>
+            <tr> 
+                <td>Description</td>
+                <td><input type="text" name="description" required></td>
+            </tr>
+  
+            <tr>
+                <td><input type="submit" name="Submit" value="Add"></td>
+            </tr>
+        </table>
+    </form>
 </body>
-
 </html>
-
-<?php
-
-}
-
-// connect to the database
-
-$server = 'localhost';
-
-$user = 'root';
-
-$pass = 'password';
-
-$db = 'myDB';
-
-
-
-// Connect to Database
-
-$conn = mysql_connect($server, $user, $pass);
-mysql_select_db($db);
-
-
-
-// check if the form has been submitted. If it has, start to process the form and save it to the database
-
-if (isset($_POST['submit']))
-
-{
-
-// get form data, making sure it is valid
-
-$firstname = mysql_real_escape_string(htmlspecialchars($_POST['firstname']));
-
-$lastname = mysql_real_escape_string(htmlspecialchars($_POST['lastname']));
-
-
-
-// check to make sure both fields are entered
-
-if ($firstname == '' || $lastname == '')
-
-{
-
-// generate error message
-
-$error = 'ERROR: Please fill in all required fields!';
-
-
-
-// if either field is blank, display the form again
-
-renderForm($firstname, $lastname, $error);
-
-}
-
-else
-
-{
-
-// save the data to the database
-
-mysql_query("INSERT names SET firstname='$firstname', lastname='$lastname'")
-
-or die(mysql_error());
-
-
-
-// once saved, redirect back to the view page
-
-header("Location: admin.php");
-
-}
-
-}
-
-else
-
-// if the form hasn't been submitted, display the form
-
-{
-
-renderForm('','','');
-
-}
-
-?>
